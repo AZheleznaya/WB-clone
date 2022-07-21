@@ -1,0 +1,135 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $mainColor, no-repeat;
+
+  @media (max-width: 500px) {
+    padding-top: 5px;
+  }
+
+  &__logo {
+    padding: 0 40px;
+    width: 20%;
+
+    @media (max-width: 1024px) {
+      padding: 0 20px;
+    }
+
+    &_image {
+      @media (max-width: 1024px){
+        width: 200px;
+        height: 100%;
+      }
+
+      @media (max-width: 867px) {
+        display: none;
+      }
+    }
+
+    &_mobile {
+      display: none;
+
+      @media (max-width: 867px) {
+        display: flex;
+      }
+
+      & img {
+        @media (max-width: 867px) {
+          width: 100%;
+          height: 90%;
+        }
+      }
+    }
+  }
+
+  &__searcher {
+    width: 50%;
+
+    @media (max-width: 1024px) {
+      width: 40%;
+    }
+
+    @media (max-width: 500px) {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &_text {
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      line-height: 24px;
+      transition: background .3s;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 15px;
+      opacity: 0.8;
+      outline: none;
+
+      &::placeholder {
+        @media (max-width: 500px) {
+          font-size: 12px;
+        }
+      }
+
+      &:focus {
+        background-color: $white;
+        opacity: 1;
+
+        @media (max-width: 500px) {
+          font-size: 12px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        width: 70%;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  &__basket {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
+
+    &_button {
+      width: 60%;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 600;
+      border-radius: 15px;
+      opacity: 0.8;
+
+      &:hover {
+        background: $mainColor;
+        border: 3px solid $white;
+        color: $white;
+        transition: 0.3s;
+        transform: scale(1.1);
+        opacity: 1;
+
+        @media (max-width: 867px) {
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        width: 100%;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }
+  }
+}
+
+
+
