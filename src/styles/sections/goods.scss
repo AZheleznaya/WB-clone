@@ -1,0 +1,224 @@
+@import "../variables.scss";
+@import "../mixin.scss";
+@import "../fonts.scss";
+
+.goods__wrapper {
+  max-width: 1504px;
+  padding: 0 32px;
+  margin: 0 auto;
+
+  .goods__title {
+    @include poppins-font-normal-xxl;
+    color: $white;
+    padding: 25px 30px;
+
+    @media (max-width: 500px) {
+      @include poppins-font-normal-xl;
+      padding: 15px 10px;
+    }
+  }
+
+  .goods__list {
+    @include flex-space-between-center;
+    flex-wrap: wrap;
+
+    .goods-item {
+      width: 25%;
+
+      @media (max-width: 1170px) {
+        width: 30%;
+      }
+
+      @media (max-width: 858px) {
+        width: 50%;
+      }
+
+      .goods-card {
+        padding: 0 10px;
+        position: relative;
+
+        &__image {
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            z-index: 1;
+            display: block;
+            object-fit: cover;
+
+            &:hover {
+              opacity: 0.5;
+              cursor: pointer;
+            }
+          }
+        }
+
+        &__preview {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          opacity: 0;
+          transition: 0.3s;
+
+
+          &_button {
+            @include poppins-font-bold-l;
+            border-radius: 10px;
+            border: none;
+            padding: 10px 3px;
+            position: absolute;
+            width: 80%;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            opacity: 1;
+            background: $mainColor;
+            color: $white;
+
+            @media (max-width: 867px) {
+              @include poppins-font-bold-m;
+            }
+
+            @media (max-width: 500px) {
+              @include poppins-font-bold-s;
+            }
+          }
+
+          &:hover {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+
+        &__discount {
+          @include poppins-font-bold-m;
+          color: $pink;
+          max-width: 80%;
+          position: absolute;
+          bottom: 10px;
+          left: 20px;
+          z-index: 3;
+          padding: 0 5px;
+          border-radius: 20px;
+          background-color: $palePink;
+
+          @media (max-width: 500px) {
+            @include poppins-font-bold-xs;
+          }
+        }
+
+        &__button {
+          width: 70%;
+          padding: 0 15px;
+          position: absolute;
+          z-index: 3;
+          bottom: 7px;
+          right: 3px;
+
+          &_add-basket {
+            @include poppins-font-bold-m;
+            width: 100%;
+            background: $palePink;
+            color: $pink;
+            border: none;
+            border-radius: 20px;
+            padding: 7px;
+
+            &:hover {
+              background: $mainColor;
+              border: 2px solid $white;
+              color: $white;
+              transition: 0.3s;
+              transform: scale(1.1);
+              opacity: 1;
+            }
+
+            @media (max-width: 1024px) {
+              @include poppins-font-bold-s;
+            }
+
+            @media (max-width: 500px) {
+              @include poppins-font-bold-xxs;
+            }
+          }
+        }
+      }
+
+      .goods-info {
+        padding: 10px;
+
+        &__price {
+          @include flex-space-between-center;
+          padding: 0 10px;
+
+          &_now {
+            @include poppins-font-bold-l;
+            color: $white;
+
+            @media (max-width: 500px) {
+              @include poppins-font-bold-s;
+            }
+          }
+
+          &_last {
+            @include poppins-font-normal-m;
+            color: $white;
+
+            @media (max-width: 500px) {
+              @include poppins-font-normal-xs;
+            }
+          }
+        }
+
+        &__description {
+          @include poppins-font-bold-l;
+          padding: 10px;
+          color: $white;
+
+          @media (max-width: 500px) {
+            @include poppins-font-bold-xs;
+          }
+        }
+      }
+    }
+  }
+
+  .goods__show-button {
+    @include poppins-font-normal-xl;
+    margin: 20px auto;
+    display: block;
+    width: 25%;
+    padding: 10px;
+    border-radius: 15px;
+    opacity: 0.8;
+
+    &:hover {
+      background: $mainColor;
+      border: 3px solid $white;
+      color: $white;
+      transition: 0.3s;
+      transform: scale(1.1);
+      opacity: 1;
+
+      @media (max-width: 867px) {
+        transform: scale(1.1);
+      }
+    }
+
+    @media (max-width: 500px) {
+      width: 40%;
+      @include poppins-font-normal-s;
+    }
+  }
+}
+
+
+
+
+
+
+
