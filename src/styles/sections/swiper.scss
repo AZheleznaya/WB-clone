@@ -1,0 +1,63 @@
+@import '../../../node_modules/swiper/swiper.scss';
+@import '../../../node_modules/swiper/modules/pagination/pagination.scss';
+@import "../variables.scss";
+
+
+.slider__wrapper {
+  padding-top: 20px;
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    padding-top: 10px;
+  }
+
+  .image-slider__slide_image {
+    width: 70%;
+    display: block;
+    margin: 5px auto;
+
+    @media (max-width: 1024px) {
+      width: 80%;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+
+      @media (max-width: 500px) {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .swiper-container {
+    & .swiper-pagination {
+      position: static;
+      display: block;
+      margin: 0 auto;
+    }
+
+    & .swiper-pagination-bullet {
+      width: 15px;
+      height: 15px;
+      font-size: $fs-xs;
+      background-color: #FFFFFF;
+      text-align: center;
+
+      @media (max-width: 500px) {
+        width: 8px;
+        height: 8px;
+        font-size: 5px;
+      }
+    }
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    transform: none;
+  }
+}
+
+
+
+

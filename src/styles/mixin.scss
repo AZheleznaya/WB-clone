@@ -1,0 +1,102 @@
+@import "variables.scss";
+
+@mixin poppins-font-normal-xxl {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: $fs-xxl;
+  line-height: $lh-xxl;
+}
+
+@mixin poppins-font-normal-xl {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs-xl;
+  line-height: $lh-xl;
+}
+
+@mixin poppins-font-bold-l {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs-l;
+  line-height: $lh-l;
+}
+
+@mixin poppins-font-normal-l {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: $fs-l;
+  line-height: $lh-l;
+}
+
+@mixin poppins-font-bold-m {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs-m;
+  line-height: $lh-m;
+}
+
+@mixin poppins-font-normal-m {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-m;
+  line-height: $lh-m;
+}
+
+@mixin poppins-font-bold-s {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs-s;
+  line-height: $lh-s;
+}
+
+@mixin poppins-font-normal-s {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: $fs-s;
+  line-height: $lh-s;
+}
+
+@mixin poppins-font-bold-xs {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs-xs;
+  line-height: $lh-xs;
+}
+
+@mixin poppins-font-normal-xs {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fs-xs;
+  line-height: $lh-xs;
+}
+
+@mixin poppins-font-bold-xxs {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs-xxs;
+  line-height: $lh-xxs;
+}
+
+@mixin flex-space-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+
