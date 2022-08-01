@@ -1,5 +1,7 @@
 "use strict";
 
+import { addItemToBasket, showItemPreview } from './basket';
+
 const requestURL = "https://62e03995fa8ed271c480af0e.mockapi.io/goods";
 const goodsList = document.querySelector(".goods__list");
 const showMoreButton = document.querySelector(".goods__show-button");
@@ -69,7 +71,10 @@ function createGoodsCards(page) {
             const goodsDescription = createElement("div", "goods-info__description", e.name);
 
             //Создание блока карточки
+            goodsItem.setAttribute("id",`cardProduct_${e.id}`);
+            goodsAddButton.setAttribute("id",`addProduct_${e.id}`);
             goodsImage.setAttribute("data-src", e.imageUrl + `?${e.id}`);
+            goodsPreviewButton.setAttribute("id", `preview_${e.id}`);
             goodsCardImage.appendChild(goodsImage);
             goodsCardPreview.appendChild(goodsPreviewButton);
             goodsDiscount.innerHTML += "-" + goodsDiscountValue.outerHTML + "%";
@@ -91,7 +96,17 @@ function createGoodsCards(page) {
             img.src = img.dataset.src;
             img.classList.remove("lazy-image");
             img.removeAttribute("data-src");
-        })
+        });
+        
+        document.querySelectorAll(".goods-card__button_add-basket").forEach(btn => {
+            let id = btn.id.split('_')[1];
+            btn.addEventListener('click', () => addItemToBasket(id));
+        });
+
+        document.querySelectorAll(".goods-card__preview_button").forEach(btn => {
+            let id = btn.id.split('_')[1];
+            btn.addEventListener('click', () => showItemPreview(id));
+        });
 
     })
 }

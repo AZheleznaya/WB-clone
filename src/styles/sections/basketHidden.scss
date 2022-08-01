@@ -1,0 +1,84 @@
+@import "variables.scss";
+
+.basket {
+    z-index: 4;
+    position: absolute;
+    width: 600px;
+    max-width: 95%;
+    right: 10px;
+    background-color: $white;
+    top: 95%;
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid $grey;
+    display: none;
+    &_btn {
+        text-align: right;
+    }
+    &_total {
+        @include poppins-font-normal-xl;
+        text-align: right;
+        @media (max-width: 500px) {
+            @include poppins-font-normal-l;
+            font-weight: bold;
+        }
+    }
+    &_btn__clear {
+        @include poppins-font-normal-l;
+        width: 150px;   
+        padding: 10px 0;
+        border: 1px solid $pink;
+        border-radius: 15px;
+        color: $pink;
+        @media (max-width: 500px) {
+            @include poppins-font-normal-s;
+            width: 120px;
+        }
+    }
+    &_list {
+        &__empty {
+            @include poppins-font-normal-xl;
+            text-align: center;
+            @media (max-width: 500px) {
+                @include poppins-font-normal-l;
+            }
+        }
+        &__item {
+            @include poppins-font-bold-l;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 7px;
+            &:not(:last-child) {
+                border-bottom: 1px solid $grey;   
+            }
+            @media (max-width: 500px) {
+                @include poppins-font-normal-s;
+            }
+            &_img {
+                height: 70px;
+                width: 70px;
+                @media (max-width: 768px) {
+                    width: 50px;
+                    height: 50px ;
+                }
+            }
+
+            &_info {
+                display: flex;
+                flex-direction: column;
+                &_price {
+                    font-weight: bold;
+                }
+            }
+            
+            & del {
+                @include poppins-font-bold-l;
+                color: $grey;
+                @media (max-width: 500px) {
+                    @include poppins-font-normal-s;
+                }
+            }
+        }
+    }
+}

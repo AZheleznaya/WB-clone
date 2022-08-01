@@ -3,7 +3,7 @@
 @import "../fonts.scss";
 
 .goods__wrapper {
-  max-width: 1504px;
+  max-width: 1200px;
   padding: 0 32px;
   margin: 0 auto;
 
@@ -166,7 +166,7 @@
 
           &_last {
             @include poppins-font-normal-m;
-            color: $white;
+            color: $grey;
 
             @media (max-width: 500px) {
               @include poppins-font-normal-xs;
