@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="styles/style.scss">
-        <title>WILDBERRIES</title>
-    </head>
-    <body>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.scss">
+    <title>WILDBERRIES</title>
+</head>
+<body>
+    <div class="wrapper">
         <header class="header">
             <div class="header__logo">
                 <img src="assets/images/WB_logo.svg" alt="logo" class="header__logo_image">
@@ -21,7 +21,19 @@
                 <input type="search" class="header__searcher_text" id="searchInput" placeholder="Поиск...">
             </div>
             <div class="header__basket">
-                <button class="header__basket_button">Корзина</button>
+                <button class="header__basket_button" id="basketBtn">
+                    Корзина
+                    <span></span>
+                </button>
+                <div class="basket">
+                    <div class="basket_btn">
+                        <button class="basket_btn__clear" id="clearBasket">Очистить корзину</button>
+                    </div>      
+                    <ul class="basket_list"></ul>
+                    <div class="basket_total">
+                        <span></span>
+                    </div>                
+                </div>
             </div>
         </header>
 
@@ -57,15 +69,19 @@
                 <div class="pagination-block swiper-pagination"></div>
             </div>
         </section>
-
         <section class="goods__wrapper">
             <h2 class="goods__title">Хиты продаж</h2>
             <div class="goods__list"></div>
             <button class="goods__show-button">Показать ещё</button>
         </section>
-
-        <script src="scripts/webAPI.js"></script>
+        <div class="overlay">
+            <div class="overlay_popup">
+                <img src="" class="overlay_popup__img" alt="">
+            </div>
+        </div>
+    </div>
+        
+        <script src="scripts/webAPI.js" type="module"></script>
         <script src="scripts/swiper.js" type="module"></script>
-
     </body>
 </html>

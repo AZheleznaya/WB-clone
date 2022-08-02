@@ -4,9 +4,9 @@
 
 .header {
   @include flex-space-between-center;
-  background: $mainColor, no-repeat;
   padding-top: 10px;
-
+  position: relative;
+  
   @media (max-width: 500px) {
     padding-top: 5px;
   }
@@ -96,8 +96,8 @@
   }
 
   &__basket {
-    width: 20%;
     @include flex-center;
+    width: 20%;
     padding-right: 10px;
 
     @media (max-width: 768px) {

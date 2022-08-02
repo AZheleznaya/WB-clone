@@ -12,7 +12,7 @@
   }
 
   .image-slider__slide_image {
-    width: 70%;
+    width: 100%;
     display: block;
     margin: 5px auto;
 
@@ -30,7 +30,6 @@
       }
     }
   }
-
   .swiper-container {
     & .swiper-pagination {
       position: static;
