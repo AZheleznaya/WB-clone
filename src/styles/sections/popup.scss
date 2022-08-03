@@ -1,19 +1,24 @@
 .overlay {
     position: fixed;
     display: none;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.733);
     z-index: 5;
-    &_popup {
+
+    &.active {
+        display: block;
+    }
+
+    &__popup {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        display: block;
-        &__img {
+
+        &_image {
             border-radius: 30px;
             width: 100%;
             height: 100%;

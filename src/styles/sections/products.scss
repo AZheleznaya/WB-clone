@@ -2,12 +2,12 @@
 @import "../mixin.scss";
 @import "../fonts.scss";
 
-.goods__wrapper {
+.products__wrapper {
   max-width: 1200px;
   padding: 0 32px;
   margin: 0 auto;
 
-  .goods__title {
+  .products__title {
     @include poppins-font-normal-xxl;
     color: $white;
     padding: 25px 30px;
@@ -18,11 +18,11 @@
     }
   }
 
-  .goods__list {
+  .products__list {
     @include flex-space-between-center;
     flex-wrap: wrap;
 
-    .goods-item {
+    .product-item {
       width: 25%;
 
       @media (max-width: 1170px) {
@@ -33,7 +33,7 @@
         width: 50%;
       }
 
-      .goods-card {
+      .product-card {
         padding: 0 10px;
         position: relative;
 
@@ -119,6 +119,10 @@
           bottom: 7px;
           right: 3px;
 
+          @media (max-width: 500px) {
+            width: 60%;
+          }
+
           &_add-basket {
             @include poppins-font-bold-m;
             width: 100%;
@@ -148,14 +152,14 @@
         }
       }
 
-      .goods-info {
+      .product-info {
         padding: 10px;
 
         &__price {
           @include flex-space-between-center;
           padding: 0 10px;
 
-          &_now {
+          &_current {
             @include poppins-font-bold-l;
             color: $white;
 
@@ -164,7 +168,7 @@
             }
           }
 
-          &_last {
+          &_old {
             @include poppins-font-normal-m;
             color: $grey;
 
@@ -174,7 +178,7 @@
           }
         }
 
-        &__description {
+        &__name {
           @include poppins-font-bold-l;
           padding: 10px;
           color: $white;
@@ -187,7 +191,7 @@
     }
   }
 
-  .goods__show-button {
+  .products__show-button {
     @include poppins-font-normal-xl;
     margin: 20px auto;
     display: block;

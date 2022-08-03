@@ -21,17 +21,17 @@
                 <input type="search" class="header__searcher_text" id="searchInput" placeholder="Поиск...">
             </div>
             <div class="header__basket">
-                <button class="header__basket_button" id="basketBtn">
+                <button class="header__basket_button" id="basketButton">
                     Корзина
-                    <span></span>
                 </button>
                 <div class="basket">
-                    <div class="basket_btn">
-                        <button class="basket_btn__clear" id="clearBasket">Очистить корзину</button>
+                    <div class="basket-button">
+                        <div class="basket-button__title">Корзина</div>
+                        <button class="basket-button__clear" id="clearBasket">Очистить корзину</button>
                     </div>      
-                    <ul class="basket_list"></ul>
-                    <div class="basket_total">
-                        <span></span>
+                    <ul class="basket-list"></ul>
+                    <div class="basket-total">
+                        <span class="basket-total__amount"></span>
                     </div>                
                 </div>
             </div>
@@ -66,22 +66,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
                 <div class="pagination-block swiper-pagination"></div>
             </div>
         </section>
-        <section class="goods__wrapper">
-            <h2 class="goods__title">Хиты продаж</h2>
-            <div class="goods__list"></div>
-            <button class="goods__show-button">Показать ещё</button>
+        <section class="products__wrapper">
+            <h2 class="products__title">Хиты продаж</h2>
+            <div class="products__list"></div>
+            <button class="products__show-button">Показать ещё</button>
         </section>
+
         <div class="overlay">
-            <div class="overlay_popup">
-                <img src="" class="overlay_popup__img" alt="">
+            <div class="overlay__popup">
+                <img src="" class="overlay__popup_image" alt="image">
             </div>
         </div>
     </div>
         
         <script src="scripts/webAPI.js" type="module"></script>
         <script src="scripts/swiper.js" type="module"></script>
+        <script src="scripts/searcher.js" type="module"></script>
     </body>
 </html>

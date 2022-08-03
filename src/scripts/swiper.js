@@ -2,6 +2,11 @@ import Swiper from '../../node_modules/swiper/swiper-bundle.js';
 
 new Swiper('.swiper-container', {
 
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+
     pagination: {
         el: '.swiper-pagination',
         clickable: true,

@@ -1,4 +1,5 @@
-@import "variables.scss";
+@import "../variables.scss";
+@import "../mixin.scss";
 
 .basket {
     z-index: 4;
@@ -12,73 +13,113 @@
     padding: 15px;
     border: 1px solid $grey;
     display: none;
-    &_btn {
-        text-align: right;
+
+    &.active {
+        display: block;
     }
-    &_total {
-        @include poppins-font-normal-xl;
+
+    &-button {
         text-align: right;
-        @media (max-width: 500px) {
-            @include poppins-font-normal-l;
-            font-weight: bold;
+        @include flex-space-between-center;
+
+        &.inactive {
+            display: none;
+        }
+
+        &__title {
+            @include poppins-font-normal-xl;
+
+            @media (max-width: 500px) {
+                @include poppins-font-bold-l;
+            }
+        }
+
+        &__clear {
+            @include poppins-font-bold-m;
+            width: 150px;
+            padding: 10px 0;
+            border: 3px solid $pink;
+            border-radius: 15px;
+            color: $pink;
+            background: $palePink;
+
+            @media (max-width: 500px) {
+                @include poppins-font-bold-s;
+                width: 120px;
+            }
+
+            &:hover {
+                background: $mainColor;
+                border: 3px solid $palePink;
+                color: $white;
+                transition: 0.3s;
+                transform: scale(1.1);
+            }
         }
     }
-    &_btn__clear {
-        @include poppins-font-normal-l;
-        width: 150px;   
-        padding: 10px 0;
-        border: 1px solid $pink;
-        border-radius: 15px;
-        color: $pink;
-        @media (max-width: 500px) {
-            @include poppins-font-normal-s;
-            width: 120px;
-        }
-    }
-    &_list {
+
+    &-list {
         &__empty {
             @include poppins-font-normal-xl;
             text-align: center;
+
             @media (max-width: 500px) {
                 @include poppins-font-normal-l;
             }
         }
+
         &__item {
-            @include poppins-font-bold-l;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 7px;
+            @include poppins-font-normal-l;
+            @include flex-space-between-center;
+            text-align: center;
+            padding: 5px 0;
+
             &:not(:last-child) {
-                border-bottom: 1px solid $grey;   
+                border-bottom: 2px solid $pink;
             }
+
             @media (max-width: 500px) {
                 @include poppins-font-normal-s;
             }
-            &_img {
-                height: 70px;
-                width: 70px;
-                @media (max-width: 768px) {
-                    width: 50px;
-                    height: 50px ;
-                }
+
+            &_image {
+                height: 30%;
+                width: 30%;
+                border-radius: 10px;
             }
 
-            &_info {
+            &_name {
+                width: 30%;
+            }
+
+            &_count {
+                width: 10%;
+            }
+
+            &_price {
+                width: 20%;
                 display: flex;
                 flex-direction: column;
-                &_price {
-                    font-weight: bold;
-                }
+                align-items: flex-end;
             }
-            
+
             & del {
-                @include poppins-font-bold-l;
+                @include poppins-font-normal-l;
                 color: $grey;
+
                 @media (max-width: 500px) {
                     @include poppins-font-normal-s;
                 }
             }
+        }
+    }
+
+    &-total {
+        @include poppins-font-normal-xl;
+        text-align: right;
+
+        @media (max-width: 500px) {
+            @include poppins-font-normal-l;
         }
     }
 }

@@ -1,5 +1,6 @@
 @import '../../../node_modules/swiper/swiper.scss';
 @import '../../../node_modules/swiper/modules/pagination/pagination.scss';
+@import '../../../node_modules/swiper/modules/navigation/navigation.scss';
 @import "../variables.scss";
 
 
@@ -30,7 +31,10 @@
       }
     }
   }
+
   .swiper-container {
+    position: relative;
+
     & .swiper-pagination {
       position: static;
       display: block;
@@ -48,6 +52,61 @@
         width: 8px;
         height: 8px;
         font-size: 5px;
+      }
+    }
+
+    & .swiper-button-next  {
+      color: $white;
+      position: absolute;
+      top: 47%;
+      left: 97%;
+      font-size: 20px;
+
+      @media (max-width: 1024px) {
+        left: 85%;
+      }
+
+      @media (max-width: 500px) {
+        left: 82%;
+      }
+
+      &::after {
+        font-size: 40px;
+
+        @media (max-width: 776px) {
+          font-size: 30px;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 20px;
+        }
+      }
+    }
+
+    & .swiper-button-prev  {
+      color: $white;
+      position: absolute;
+      top: 47%;
+      left: 1%;
+
+      @media (max-width: 1024px) {
+        left: 12%;
+      }
+
+      @media (max-width: 767px) {
+        left: 11%;
+      }
+
+      &::after {
+        font-size: 40px;
+
+        @media (max-width: 776px) {
+          font-size: 30px;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 20px;
+        }
       }
     }
   }

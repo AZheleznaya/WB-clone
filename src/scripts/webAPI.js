@@ -1,13 +1,13 @@
-"use strict";
-
-import { addItemToBasket, showItemPreview } from './basket';
+import {addProductCardToBasket} from './basket/basket.js';
+import {showItemPreview} from "./popupOverlay.js";
+import {createElement} from "./utils/createElementFunc.js";
 
 const requestURL = "https://62e03995fa8ed271c480af0e.mockapi.io/goods";
-const goodsList = document.querySelector(".goods__list");
-const showMoreButton = document.querySelector(".goods__show-button");
+const productsList = document.querySelector(".products__list");
+const showMoreButton = document.querySelector(".products__show-button");
 const page = new Page(1, 9);
 
-async function getGoodsCards(url, page) {
+async function getProductsCards(url, page) {
 
     const response = await fetch(url + `?page=${page.number}&limit=${page.size}`);
 
@@ -15,17 +15,17 @@ async function getGoodsCards(url, page) {
         throw new Error(`Enable to fetch data from ${url}: error status ${response.status}`)
     }
 
-    let goodsData = await response.json();
-    return await goodsData.map(e => new GoodsCard(e.id, e.name, e.priceLast, e.discount, e.image));
+    let productsData = await response.json();
+    return await productsData.map(e => new ProductsCard(e.id, e.name, e.oldPrice, e.discount, e.image));
 }
 
-function GoodsCard(id, name, priceLast, discount, imageUrl) {
+function ProductsCard(id, name, oldPrice, discount, imageUrl) {
     this.id = id;
     this.name = name;
-    this.priceLast = priceLast;
+    this.oldPrice = oldPrice;
     this.discount = discount;
     this.imageUrl = imageUrl;
-    this.priceNow = (priceLast - priceLast / 100 * discount).toFixed(2);
+    this.currentPrice = (oldPrice - oldPrice / 100 * discount).toFixed(2);
 }
 
 function Page(number, size) {
@@ -33,77 +33,63 @@ function Page(number, size) {
     this.size = size;
 }
 
-function createElement(tagName, className, contentHTML) {
-    const element = document.createElement(tagName);
-    element.className = className;
-    element.innerHTML = contentHTML;
-
-    return element;
-}
-
-function createGoodsCards(page) {
-    getGoodsCards(requestURL, page).then(goodsCards => {
-        return goodsCards.map(e => {
+function createProductsCards(page) {
+    getProductsCards(requestURL, page).then(productsCards => {
+        return productsCards.map(e => {
             //Общий блок
-            const goodsItem = createElement("div", "goods-item", "");
+            const productItem = createElement("div", "product-item", "",[{name: "id", value: `cardProduct_${e.id}`}]);
             //Блок карточки (картинка, скидка, кнопки)
-            const goodsCardBlock = createElement("div", "goods-card", "");
+            const productCardBlock = createElement("div", "product-card");
 
-            const goodsImage = createElement("img", "image lazy-image", "");
-            const goodsCardImage = createElement("div", "goods-card__image", "");
+            const productImage = createElement("img", "image lazy-image", "", [{name: "data-src", value: e.imageUrl + `?${e.id}`}]);
+            const productCardImage = createElement("div", "product-card__image");
 
-            const goodsCardPreview = createElement("div", "goods-card__preview", "");
-            const goodsPreviewButton = createElement("button", "goods-card__preview_button", "Быстрый просмотр");
+            const productCardPreview = createElement("div", "product-card__preview");
+            const productPreviewButton = createElement("button", "product-card__preview_button", "Быстрый просмотр", [{name: "id", value: `preview_${e.id}`}]);
 
-            const goodsDiscountValue = createElement("span", "discount", e.discount);
-            const goodsDiscount = createElement("div", "goods-card__discount", "");
+            const productDiscountValue = createElement("span", "discount", `-${e.discount}%`);
+            const productDiscount = createElement("div", "product-card__discount");
 
-            const goodsCardAdd = createElement("div", "goods-card__button", "");
-            const goodsAddButton = createElement("button", "goods-card__button_add-basket", "Добавить в корзину");
+            const productCardAdd = createElement("div", "product-card__button");
+            const productAddButton = createElement("button", "product-card__button_add-basket", "Добавить в корзину", [{name: "id", value: `addProduct_${e.id}`}]);
 
             //Блок инфо о товаре (цены и описание)
-            const goodsInfoBlock = createElement("div", "goods-info", "");
+            const productInfoBlock = createElement("div", "product-info");
 
-            const goodsPriceBlock = createElement("div", "goods-info__price", "");
-            const goodsPriceNow = createElement("span", "goods-info__price_now", e.priceNow + " р.");
-            const goodsPriceLast = createElement("del", "goods-info__price_last", e.priceLast + " р.");
+            const productPriceBlock = createElement("div", "product-info__price");
+            const productCurrentPrice = createElement("span", "product-info__price_current", e.currentPrice + " р.");
+            const productOldPrice = createElement("del", "product-info__price_old", e.oldPrice + " р.");
 
-            const goodsDescription = createElement("div", "goods-info__description", e.name);
+            const productName = createElement("div", "product-info__name", e.name);
 
-            //Создание блока карточки
-            goodsItem.setAttribute("id",`cardProduct_${e.id}`);
-            goodsAddButton.setAttribute("id",`addProduct_${e.id}`);
-            goodsImage.setAttribute("data-src", e.imageUrl + `?${e.id}`);
-            goodsPreviewButton.setAttribute("id", `preview_${e.id}`);
-            goodsCardImage.appendChild(goodsImage);
-            goodsCardPreview.appendChild(goodsPreviewButton);
-            goodsDiscount.innerHTML += "-" + goodsDiscountValue.outerHTML + "%";
-            goodsCardAdd.appendChild(goodsAddButton);
+            productCardImage.appendChild(productImage);
+            productCardPreview.appendChild(productPreviewButton);
+            productDiscount.appendChild(productDiscountValue);
+            productCardAdd.appendChild(productAddButton);
 
-            goodsCardBlock.innerHTML += goodsCardImage.outerHTML + goodsCardPreview.outerHTML + goodsDiscount.outerHTML + goodsCardAdd.outerHTML;
+            productCardBlock.innerHTML += productCardImage.outerHTML + productCardPreview.outerHTML + productDiscount.outerHTML + productCardAdd.outerHTML;
 
-            //Создание блока инфо
-            goodsPriceBlock.innerHTML += goodsPriceNow.outerHTML + goodsPriceLast.outerHTML;
-            goodsInfoBlock.innerHTML += goodsPriceBlock.outerHTML + goodsDescription.outerHTML;
+            productPriceBlock.innerHTML += productCurrentPrice.outerHTML + productOldPrice.outerHTML;
+            productInfoBlock.innerHTML += productPriceBlock.outerHTML + productName.outerHTML;
 
-            goodsItem.innerHTML += goodsCardBlock.outerHTML + goodsInfoBlock.outerHTML;
-            return goodsItem;
+            productItem.innerHTML += productCardBlock.outerHTML + productInfoBlock.outerHTML;
+            return productItem;
         });
 
-    }).then(goods => {
-        goods.forEach(e => goodsList.appendChild(e))
+    }).then(products => {
+        products.forEach(e => productsList.appendChild(e))
         document.querySelectorAll("img.lazy-image").forEach(img => {
             img.src = img.dataset.src;
             img.classList.remove("lazy-image");
             img.removeAttribute("data-src");
         });
         
-        document.querySelectorAll(".goods-card__button_add-basket").forEach(btn => {
+        document.querySelectorAll(".product-card__button_add-basket").forEach(btn => {
             let id = btn.id.split('_')[1];
-            btn.addEventListener('click', () => addItemToBasket(id));
+            btn.addEventListener('click', () => addProductCardToBasket(id));
         });
 
-        document.querySelectorAll(".goods-card__preview_button").forEach(btn => {
+        document.querySelectorAll(".product-card__preview_button").forEach(btn => {
             let id = btn.id.split('_')[1];
             btn.addEventListener('click', () => showItemPreview(id));
         });
@@ -113,8 +99,8 @@ function createGoodsCards(page) {
 
 showMoreButton.addEventListener('click', () => {
     page.number += 1;
-    createGoodsCards(page);
+    createProductsCards(page);
 });
 
-createGoodsCards(page);
+createProductsCards(page);
 
