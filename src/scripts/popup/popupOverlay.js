@@ -1,7 +1,7 @@
 export {showItemPreview};
-import {removeElementClass, addElementClass} from "./utils/createElementFunc.js";
+import {addElementClass, removeElementClass} from "../utils/add-removeElementClass.js";
 
-const popupOverlay = document.querySelector('.overlay');
+const popupOverlay = document.querySelector(".overlay");
 
 popupOverlay.addEventListener('click', (e) => {
     e.stopPropagation();

@@ -11,7 +11,7 @@
     top: 95%;
     border-radius: 20px;
     padding: 15px;
-    border: 1px solid $grey;
+    border: 3px solid $grey;
     display: none;
 
     &.active {
@@ -98,9 +98,7 @@
 
             &_price {
                 width: 20%;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
+                @include flex-column-flex-end;
             }
 
             & del {

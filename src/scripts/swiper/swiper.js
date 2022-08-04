@@ -1,4 +1,4 @@
-import Swiper from '../../node_modules/swiper/swiper-bundle.js';
+import Swiper from 'swiper/swiper-bundle.js';
 
 new Swiper('.swiper-container', {
 

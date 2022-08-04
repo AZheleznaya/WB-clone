@@ -15,6 +15,7 @@
     "sass": "^1.53.0"
   },
   "dependencies": {
+    "basket": "^1.0.0",
     "jquery": "^3.6.0",
     "swiper": "^8.3.2"
   }

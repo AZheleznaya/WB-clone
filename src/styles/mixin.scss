@@ -99,4 +99,10 @@
   justify-content: center;
 }
 
+@mixin flex-column-flex-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 

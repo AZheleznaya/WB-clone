@@ -1,8 +1,6 @@
-"use strict";
-
 const searchProduct = document.querySelector("#searchInput");
 
-function searchProducts(event) {
+export function searchProducts(event) {
     let searchValue = event.target.value.toLowerCase();
 
     let productsValue = document.querySelectorAll(".product-info__name");
