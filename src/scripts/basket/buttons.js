@@ -1,17 +1,13 @@
-import {basketList, clearBasketButton, basketButtonBlock, basketButton, basket} from "./elementsCreator.js";
+import {basketList, clearBasketButton, basketButtonBlock, basketButton, basket} from "./elementsSearcher.js";
 import {addElementClass, removeElementClass} from "../utils/add-removeElementClass.js";
 import {createEmptyBasketBlock} from "./emptyBasket.js";
 import {products, setProductsBasket} from "./localStorage.js";
 import {CLICK_EVENT} from "../constants/constants.js";
 
-function clearBasketList() {
+clearBasketButton.addEventListener(CLICK_EVENT, () => {
     while (basketList.firstChild) {
         basketList.removeChild(basketList.firstChild)
     }
-}
-
-clearBasketButton.addEventListener(CLICK_EVENT, () => {
-    clearBasketList();
     addElementClass(basketButtonBlock, "inactive");
     createEmptyBasketBlock();
 

@@ -1,5 +1,5 @@
 import {products} from "./localStorage.js";
-import {basketTotalPrice} from "./elementsCreator.js";
+import {basketTotalPrice} from "./elementsSearcher.js";
 
 export function setProductCount(productItem, count) {
     const product = productItem.querySelector(".basket-list__item_count");

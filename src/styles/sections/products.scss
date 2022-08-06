@@ -3,9 +3,8 @@
 @import "../fonts.scss";
 
 .products__wrapper {
-  max-width: 1200px;
-  padding: 0 32px;
-  margin: 0 auto;
+  @include flex-center;
+  flex-direction: column;
 
   .products__title {
     @include poppins-font-normal-xxl;
@@ -19,14 +18,14 @@
   }
 
   .products__list {
-    @include flex-space-between-center;
+    @include flex-flex-start-center;
     flex-wrap: wrap;
 
     .product-item {
       width: 25%;
 
       @media (max-width: 1170px) {
-        width: 30%;
+        width: 33%;
       }
 
       @media (max-width: 858px) {
@@ -119,6 +118,7 @@
 
           @media (max-width: 500px) {
             width: 60%;
+            padding: 0 10px;
           }
 
           &_add-basket {
@@ -132,15 +132,15 @@
 
             &:hover {
               background: $mainColor;
-              border: 2px solid $white;
+              border: 1px solid $white;
               color: $white;
               transition: 0.3s;
-              transform: scale(1.1);
+              transform: scale(1);
               opacity: 1;
-            }
 
-            @media (max-width: 1024px) {
-              @include poppins-font-bold-s;
+              @media (max-width: 500px) {
+                @include poppins-font-bold-xxs;
+              }
             }
 
             @media (max-width: 500px) {
@@ -208,12 +208,18 @@
 
       @media (max-width: 867px) {
         transform: scale(1.1);
+        @include poppins-font-bold-m;
       }
+    }
+
+    @media (max-width: 867px) {
+      width: 30%;
+      @include poppins-font-bold-m;
     }
 
     @media (max-width: 500px) {
       width: 40%;
-      @include poppins-font-normal-s;
+      @include poppins-font-bold-s;
     }
   }
 }

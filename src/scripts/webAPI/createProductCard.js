@@ -8,7 +8,7 @@ export {requestURL, productsList, page, createProductsCards};
 
 const requestURL = "https://62e03995fa8ed271c480af0e.mockapi.io/goods";
 const productsList = document.querySelector(".products__list");
-const page = new Page(1, 9);
+const page = new Page(1, 8);
 
 function createProductsCards(page) {
     getProductsCards(requestURL, page).then(productsCards => {

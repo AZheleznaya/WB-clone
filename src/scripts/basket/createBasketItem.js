@@ -1,5 +1,5 @@
 import {createElement} from "../utils/createElement.js";
-import {basketList} from "./elementsCreator.js";
+import {basketList} from "./elementsSearcher.js";
 
 export function createBasketListItem(product) {
     const basketListItem = createElement("li", "basket-list__item", "" ,[{name: "id", value: `product_${product.id}`}]);

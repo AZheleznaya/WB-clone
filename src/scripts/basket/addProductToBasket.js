@@ -1,6 +1,6 @@
 import {saveProductCard} from "./localStorage.js";
 import {removeElementClass} from "../utils/add-removeElementClass.js";
-import {basketButtonBlock} from "./elementsCreator.js";
+import {basketButtonBlock} from "./elementsSearcher.js";
 import {createBasketListItem} from "./createBasketItem.js";
 import { setProductCount, calcTotalPrice} from "./price-productCounters.js";
 
