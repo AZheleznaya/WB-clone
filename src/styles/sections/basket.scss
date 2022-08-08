@@ -6,6 +6,8 @@
     position: absolute;
     width: 600px;
     max-width: 95%;
+    max-height: 600px;
+    overflow: auto;
     right: 10px;
     background-color: $white;
     top: 95%;
@@ -14,6 +16,10 @@
     border: 2px solid $grey;
     display: none;
     margin-top: 5px;
+
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
 
     &.active {
         display: block;
