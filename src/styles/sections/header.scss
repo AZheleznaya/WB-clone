@@ -104,12 +104,37 @@
       width: 30%;
     }
 
+    &-count {
+      display: none;
+
+      &.active {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 67%;
+        font-size: 14px;
+        background: #f55123;
+        border-radius: 50%;
+        width: 25px;
+        height: 23px;
+        color: $white;
+
+        @media (max-width: 500px) {
+          font-size: 10px;
+          width: 15px;
+          height: 15px;
+          left: 77%;
+        }
+      }
+    }
+
     &_button {
       @include poppins-font-normal-xl;
       width: 100%;
       padding: 10px;
       border-radius: 15px;
       opacity: 0.8;
+      position: relative;
 
       &:hover {
         background: $mainColor;
