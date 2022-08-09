@@ -18,8 +18,6 @@ new Swiper('.swiper-container', {
 
     loop: true,
 
-    slideToClickedSlide: true,
-
     autoplay: {
         delay: 3000,
         stopOnLastSlide: true,
