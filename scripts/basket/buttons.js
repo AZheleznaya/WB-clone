@@ -3,6 +3,7 @@ import {addElementClass, removeElementClass} from "../utils/add-removeElementCla
 import {createEmptyBasketBlock} from "./emptyBasket.js";
 import {products, setProductsBasket} from "./localStorage.js";
 import {CLICK_EVENT} from "../constants/constants.js";
+import {setBasketCount} from "./price-productCounters.js";
 
 clearBasketButton.addEventListener(CLICK_EVENT, () => {
     while (basketList.firstChild) {
@@ -13,6 +14,7 @@ clearBasketButton.addEventListener(CLICK_EVENT, () => {
 
     products.length = 0;
     setProductsBasket();
+    setBasketCount();
 });
 
 basketButton.addEventListener(CLICK_EVENT, () => {

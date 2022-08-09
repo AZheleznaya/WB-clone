@@ -2,7 +2,7 @@ import {addElementClass, removeElementClass} from "../utils/add-removeElementCla
 import {products} from "./localStorage.js";
 import {basketButtonBlock} from "./elementsSearcher"
 import {createBasketListItem} from "./createBasketItem.js";
-import {calcTotalPrice} from "./price-productCounters.js";
+import {calcTotalPrice, setBasketCount} from "./price-productCounters.js";
 import {createEmptyBasketBlock} from "./emptyBasket.js";
 
 export function fillBasket(products) {
@@ -19,6 +19,8 @@ export function fillBasket(products) {
         addElementClass(basketButtonBlock, "inactive");
         createEmptyBasketBlock();
     }
+    
+    setBasketCount();
 }
 
 fillBasket(products);
