@@ -2,7 +2,7 @@ import {saveProductCard} from "./localStorage.js";
 import {removeElementClass} from "../utils/add-removeElementClass.js";
 import {basketButtonBlock} from "./elementsSearcher.js";
 import {createBasketListItem} from "./createBasketItem.js";
-import { setProductCount, calcTotalPrice, setBasketCount} from "./price-productCounters.js";
+import {setProductCount, calcTotalPrice, setBasketCount} from "./price-productCounters.js";
 
 export function addProductCardToBasket(id) {
     let productCard = saveProductCard(id);
