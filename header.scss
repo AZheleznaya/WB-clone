@@ -1,0 +1,155 @@
+@import "../variables.scss";
+@import "../mixin.scss";
+@import "../fonts.scss";
+
+.header {
+  @include flex-space-between-center;
+  padding-top: 10px;
+  position: relative;
+  
+  @media (max-width: 500px) {
+    padding-top: 5px;
+  }
+
+  &__logo {
+    padding: 0 20px;
+    width: 20%;
+
+    @media (max-width: 768px) {
+      padding: 0 10px;
+    }
+
+    &_image {
+      @media (max-width: 1024px){
+        width: 170px;
+        height: 100%;
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &_mobile {
+      display: none;
+
+      @media (max-width: 768px) {
+        padding: 10px 0;
+        display: flex;
+      }
+
+      & img {
+        @media (max-width: 768px) {
+          width: 100%;
+          height: 90%;
+        }
+      }
+    }
+  }
+
+  &__searcher {
+    width: 40%;
+
+    @media (max-width: 500px) {
+      width: 80%;
+      @include flex-center;
+    }
+
+    &_text {
+      @include poppins-font-normal-xl;
+      width: 100%;
+      transition: background .3s;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 15px;
+      opacity: 0.8;
+      outline: none;
+
+      &::placeholder {
+        @media (max-width: 768px) {
+          @include poppins-font-normal-l;
+        }
+
+        @media (max-width: 500px) {
+          @include poppins-font-normal-s;
+        }
+      }
+
+      &:focus {
+        background-color: $white;
+        opacity: 1;
+
+        @media (max-width: 500px) {
+          @include poppins-font-normal-s;
+        }
+      }
+
+      @media (max-width: 768px) {
+        padding: 10px 10px;
+      }
+
+      @media (max-width: 500px) {
+        width: 70%;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  &__basket {
+    @include flex-center;
+    width: 20%;
+    padding-right: 10px;
+
+    @media (max-width: 768px) {
+      width: 30%;
+    }
+
+    &-count {
+      display: none;
+
+      &.active{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 67%;
+        font-size: 14px;
+        background: #f55123;
+        border-radius: 50%;
+        width: 25px;
+        height: 23px; 
+        @media (max-width: 500px) {
+          font-size: 10px;
+          width: 15px;
+          height: 15px;
+          left: 77%;
+        }
+      }
+    }
+    
+
+    &_button {
+      @include poppins-font-normal-xl;
+      width: 100%;
+      padding: 10px;
+      border-radius: 15px;
+      opacity: 0.8;
+      position: relative;
+
+      &:hover {
+        background: $mainColor;
+        border: 3px solid $white;
+        color: $white;
+        transition: 0.3s;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      @media (max-width: 500px) {
+        @include poppins-font-bold-m;
+      }
+    }
+  }
+}
+
+
+

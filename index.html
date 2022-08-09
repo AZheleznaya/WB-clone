@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles/main.scss">
+        <title>WILDBERRIES</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__logo">
+                    <a class="header__logo_image" href="/">
+                        <img src="assets/images/WB_logo.svg" alt="logo" class="header__logo_image">
+                    </a>
+                    <a class="header__logo_mobile" href="/">
+                        <img src="assets/images/WB_logo_mobile.png" alt="logoMobile">
+                    </a>
+                </div>
+                <div class="header__searcher">
+                    <input type="search" class="header__searcher_text" id="searchInput" placeholder="Поиск...">
+                </div>
+                <div class="header__basket">
+                    <button class="header__basket_button" id="basketButton">
+                        Корзина
+                        <span class="header__basket-count"></span>
+                    </button>
+                    <div class="basket">
+                        <div class="basket-button">
+                            <div class="basket-button__title">Корзина</div>
+                            <button class="basket-button__clear" id="clearBasket">Очистить корзину</button>
+                        </div>
+                        <ul class="basket-list"></ul>
+                        <div class="basket-total">
+                            <span class="basket-total__amount"></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="slider__wrapper">
+                <div class="swiper-container image-slider">
+                    <div class="swiper-wrapper image-slider__wrapper">
+                        <div class="swiper-slide image-slider__slide">
+                            <div class="image-slider__slide_image">
+                                <img src="assets/images/slider-1.jpeg" alt="cat">
+                            </div>
+                        </div>
+                        <div class="swiper-slide image-slider__slide">
+                            <div class="image-slider__slide_image">
+                                <img src="assets/images/slider-2.jpeg" alt="cat">
+                            </div>
+                        </div>
+                        <div class="swiper-slide image-slider__slide">
+                            <div class="image-slider__slide_image">
+                                <img src="assets/images/slider-3.jpeg" alt="cat">
+                            </div>
+                        </div>
+                        <div class="swiper-slide image-slider__slide">
+                            <div class="image-slider__slide_image">
+                                <img src="assets/images/slider-4.jpeg" alt="cat">
+                            </div>
+                        </div>
+                        <div class="swiper-slide image-slider__slide">
+                            <div class="image-slider__slide_image">
+                                <img src="assets/images/slider-5.jpeg" alt="cat">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="pagination-block swiper-pagination"></div>
+                </div>
+            </section>
+            <section class="products__wrapper">
+                <h2 class="products__title">Хиты продаж</h2>
+                <div class="products__list"></div>
+                <button class="products__show-button">Показать ещё</button>
+            </section>
+            <div class="overlay">
+                <div class="overlay__popup">
+                    <img src="" class="overlay__popup_image" alt="image">
+                </div>
+            </div>
+        </div>
+        <script src="scripts/main.js" type="module"></script>
+    </body>
+</html>
