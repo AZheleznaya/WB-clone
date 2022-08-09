@@ -59,11 +59,15 @@
       font-size: 20px;
 
       @media (max-width: 1024px) {
-        left: 85%;
+        left: 96%;
       }
 
-      @media (max-width: 500px) {
-        left: 82%;
+      @media (max-width: 767px) {
+        left: 95%;
+      }
+
+      @media (max-width: 767px) {
+        left: 93%;
       }
 
       &::after {
@@ -86,11 +90,7 @@
       left: 1%;
 
       @media (max-width: 1024px) {
-        left: 12%;
-      }
-
-      @media (max-width: 767px) {
-        left: 11%;
+        left: 0;
       }
 
       &::after {
