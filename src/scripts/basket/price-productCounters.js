@@ -1,5 +1,6 @@
 import {products} from "./localStorage.js";
 import {basketTotalPrice, basketCount} from "./elementsSearcher.js";
+import {addElementClass, removeElementClass} from "../utils/add-removeElementClass.js";
 
 export function setProductCount(productItem, count) {
     const product = productItem.querySelector(".basket-list__item_count");
@@ -25,5 +26,5 @@ export function setBasketCount() {
     }
 
     basketCount.innerText = count;
-    count > 0 ? basketCount.classList.add('active'): basketCount.classList.remove('active');
+    count > 0 ? addElementClass(basketCount, "active") : removeElementClass(basketCount, "active")
 }
